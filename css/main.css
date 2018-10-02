@@ -1,3 +1,4 @@
+@import "bootswatch.css";
 @import "variables.css"; 
 @import "about.css";
 @import "contact.css";
@@ -6,3 +7,5 @@
 @import "navbar.css";
 @import "projects.css";
 @import "header.css";
+@import "mouseEffect.css";
+@import "animate.css";
