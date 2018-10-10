@@ -1,0 +1,12 @@
+#aboutMe {
+    color: white;
+    text-align: left;
+    font-size: 140%;
+}
+
+#aboutContainer {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}

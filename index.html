@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css" type="text/css">
@@ -15,67 +14,59 @@
 </head>
 
 <body>
-    
-    <!--navbar-->
 
-    <div class="bars" id="nav-action">
-            <span class="bar"> </span>
-        </div>
+    <!-- Canvas Page -->
 
-    <nav id="nav">
-            <ul>
-                <li class="shape-circle circle-one">
-                    <a href="#portfolio"></a>
-                </li>
-                <li class="shape-circle circle-two">
-                    <a href="#about"></a>
-                </li>
-                <li class="shape-circle circle-three">
-                    <a href="#contact"></a>
-                </li>
-                <li class="shape-circle circle-five">
-                    <a href="#" id="noshow"></a>
-                </li>
-            </ul>
-        </nav>
+    <div id="headerText">
+        <p>Welcome To Donovan Triplett's Galaxy<br>(Of Coding)</p>
+    </div>
+    <canvas>
+    </canvas>
 
-    <!--jumbotron-->
-
-    
     <!--projects-->
 
-    <div class="container" id="projects">
-        <div class="row">
-            <div class="col-4"><a href="https://codepen.io/donotriplett/full/KxLBMv/" target="blank">creature</a></div>
-            <div class="col-4">link</div>
-            <div class="col-4">link</div>
+    <div class="containter" id="projectsContainer">
+        <div id="projects">
+            <h1 class="projectHead"><i>Take a Look at my Projects</i></h1>
+            <a href="https://codepen.io/donotriplett/full/KxLBMv/" target="blank"><img id="codePen" src="/Projects/Portfolio/assets/Screenshot (8).png"></a>
+            <a href="https://donotriplett.github.io/tutorialPage/" target="blank"><img id="tutorialPage" src="/Projects/Portfolio/assets/Screenshot (11).png"></a>
+            <a href="https://donotriplett.github.io/SportsDB-API-project/" target="blank"><img id="APIPage" src="/Projects/Portfolio/assets/Screenshot (13).png"></a>
         </div>
     </div>
 
     <!--about me-->
 
-    <div class="container">
+    <div class="container" id="aboutContainer">
         <div class="row">
             <div class="col-12">
-                <p id="aboutMe">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, natus quia quos
-                    dignissimos repellendus qui, maiores aliquid exercitationem aliquam eum rem! Nemo quas error
-                    voluptates ab, vero id commodi dignissimos.</p>
+                <p id="aboutMe">I started my professional career working in a few warehouses, found out it was not the
+                    industry for me so I moved into the house remodeling business. Although I do enjoy a majority of
+                    remodeling and plan to continue later in life on the side, I still wanted more for myself. I
+                    started with
+                    eleven fifty Academy to learn JavaScript coding and I have not looked back since. I thoroughly
+                    enjoy
+                    coding and can see myself doing this for the rest of my life!</p>
+                <p id="aboutMe">I have played ultimate frisbee recreationally for 6 years, and professionally with the Indianapolis
+                    Alleycats for 4 years. I love team environments, and being a part of a group to accomplish greater
+                    task. I also coached the Center Grove high school ultimate B team for 2 years, the kids taught me a
+                    ton about being a better leader and what it takes to use every single person to their max
+                    potential.</p>
+                <p id="aboutMe">I plan to make use my coding skills to create gorgeous functional websites for others to enjoy! I'm
+                    here to make the world wide web a better place to be one site at a time!</p>
             </div>
         </div>
     </div>
 
     <!--contact me-->
 
-    <section id="about"></section>
-    <section id="portfolio"></section>
-    <section id="contact">
+    <section id="contactContainer">
         <div class="container">
-            <h2 class="text-center text-uppercase">contact</h2>
-            <div class="row">
+            <h3 id="contact">Contact Me</h3>
+            <div class="row" id="contact">
                 <form action="https://formspree.io/donotriplett@gmail.com" method="POST">
                     <div class="control-group">
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Name: </label>
                             <input type="text" class="form-control" placeholder="Your Name" id="name" required
                                 data-validation-required-message="Please enter your name" name="name">
                             <p class="help-block text-danger"></p>
@@ -83,7 +74,7 @@
                     </div>
                     <div class="control-group">
                         <div class="form-group">
-                            <label>Email Address</label>
+                            <label>Email Address: </label>
                             <input type="email" class="form-control" placeholder="Your Email" id="email" required
                                 data-validation-required-message="Please enter your email" name="_replyto">
                             <p class="help-block text-danger"></p>
@@ -108,13 +99,18 @@
         </div>
     </section>
 
+    <nav class="navbar navbar-light bg-light" id="footer">
+        <span>Thanks for Visiting!</span>
+        <span>Webpage Brought to you by Donovan Triplett!</span>
+        <a class="navbar-brand" id="return" href="#">Return to Top</a>
+
+    </nav>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script src="./JS/cursorEffect.js"></script>    
+    <script src="./JS/canvasPage.js"></script>
 </body>
 
 </html>
