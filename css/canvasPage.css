@@ -10,9 +10,24 @@ canvas {
 
 #headerText {
     position: absolute;
-    top: 8vh;
+    top: 15vh;
     width: 100%;
     color: white;
     font-size: 300%;
     text-align: center;
+}
+
+#headerText2 {
+    position: absolute;
+    top: 75vh;
+    width: 100%;
+    color: white;
+    font-size: 300%;
+    text-align: center;
+}
+
+y {
+  transform:translate3D(0em, 0em, 0);
+  animation: stars 21s ease; 
+  transform-style: preserve-3d;
 }

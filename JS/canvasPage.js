@@ -19,8 +19,6 @@ function Circle(x, y, radius, fillColor) {
     c.fill();
 }
 
-
-
 function Cloud(x, y, dx, cloudWidth, cloudLength) {
 
     this.x = x;
@@ -50,38 +48,6 @@ function Cloud(x, y, dx, cloudWidth, cloudLength) {
         }
         this.x -= this.dx;
         this.draw();
-    }
-
-}
-
-function ShootingStar(x, y, dx, dy, radius, color) {
-
-    this.x = x;
-    this.y = y;
-    this.dx = dx;
-    this.dy = dy;
-    this.radius = radius;
-    this.color = color;
-
-
-    this.draw = function () {
-        c.beginPath();
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        c.closePath();
-        c.fillStyle = this.color;
-        c.fill();
-    }
-    this.update = function () {
-        this.x += this.dx;
-        this.y += this.dy;
-        this.draw();
-    }
-    this.reset = function () {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.dx = (Math.random() - 1) * 10;
-        this.dy = (Math.random() - .5) * 10;
-        this.radius = (Math.random() * 2) + 1;
     }
 
 }
@@ -270,27 +236,9 @@ drawStars(25);
 drawClouds(25);
 drawLand(15);
 
-//Sloppy code for two randomly generated shooting stars
-var shootingStar = new ShootingStar(10, 10, 15, 10, 2, 'white');
-var shootingStar2 = new ShootingStar(400, 300, -8, 8, 2, 'white');
-
-window.setInterval(resetShootingStar, 2000);
-window.setInterval(resetShootingStar2, 4000);
-function resetShootingStar() {
-    shootingStar.reset();
-}
-function resetShootingStar2() {
-    shootingStar2.reset();
-}
-
 // Animate canvas
 function animate() {
     requestAnimationFrame(animate);
-
-    c.fillStyle = 'rgba(11, 21, 56,0)';
-    c.fillRect(0, 0, canvas.width, canvas.height);
-    shootingStar.update();
-    shootingStar2.update();
 
     for (var i = 0; i < stars.length; i++) {
         Star(stars[i].x, stars[i].y, stars[i].spikes, stars[i].innerRadius, stars[i].outerRadius);
@@ -298,10 +246,7 @@ function animate() {
     for (var i = 0; i < planets.length; i++) {
         Circle(planets[i].x, planets[i].y, planets[i].radius, planets[i].fillColor);
     }
-    var ring3 = new Circle(center.x, center.y, 255, 'rgba(10, 23, 66, 0)');
-    var ring2 = new Circle(center.x, center.y, 215, 'rgba(9, 30, 75, 0)');
-    var ring1 = new Circle(center.x, center.y, 175, 'rgba(8, 34, 83, 0)');
-    var earthBorder = new Circle(center.x, center.y, 135, 'rgb(12, 20, 56, 0)');
+
     var earth = new Circle(center.x, center.y, earthWidth, 'blue');
     for (var i = 1; i < land.length; i++) {
         land[i].update();
@@ -313,3 +258,141 @@ function animate() {
 }
 
 animate();
+
+(function() {
+    /**
+       author: @manufosela
+       2013/08/27    copyleft 2013
+  
+       ShootingStar class Main Methods:
+       launch: launch shooting stars every N seconds received by              param. 10 seconds by default.
+        launchStar: launch a shooting star. Received options                  object by param with:
+                 - dir (direction between 0 and 1)
+                 - life (between 100 and 400)
+                 - beamSize (between 400 and 700)
+                 - velocity (between 2 and 10)
+    **/
+  
+    ShootingStar = function(id) {
+      this.n = 0;
+      this.m = 0;
+      this.defaultOptions = {
+        velocity: 8,
+        starSize: 10,
+        life: 300,
+        beamSize: 400,
+        dir: -1
+      };
+      this.options = {};
+      id = (typeof id != "undefined") ? id : "";
+      this.capa = ($(id).lenght > 0) ? "body" : id;
+      this.wW = $(this.capa).innerWidth();
+      this.hW = $(this.capa).innerHeight();
+    };
+  
+    ShootingStar.prototype.addBeamPart = function(x, y) {
+      this.n++;
+      var name = this.getRandom(100, 1);
+      $("#star" + name).remove();
+      $(this.capa).append("<div id='star" + name + "'></div>");
+      $("#star" + name).append("<div id='haz" + this.n + "' class='haz' style='position:absolute; color:#FF0; width:10px; height:10px; font-weight:bold; font-size:" + this.options.starSize + "px'>·</div>");
+      if (this.n > 1) $("#haz" + (this.n - 1)).css({
+        color: "rgba(255,255,255,0.5)"
+      });
+      $("#haz" + this.n).css({
+        top: y + this.n,
+        left: x + (this.n * this.options.dir)
+      });
+    }
+  
+    ShootingStar.prototype.delTrozoHaz = function() {
+      this.m++;
+      $("#haz" + this.m).animate({
+        opacity: 0
+      }, 75);
+      if (this.m >= this.options.beamSize) {
+        $("#ShootingStarParams").fadeOut("slow");
+      }
+    }
+  
+    ShootingStar.prototype.getRandom = function(max, min) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  
+    ShootingStar.prototype.toType = function(obj) {
+      if (typeof obj === "undefined") {
+        return "undefined"; /* consider: typeof null === object */
+      }
+      if (obj === null) {
+        return "null";
+      }
+      var type = Object.prototype.toString.call(obj).match(/^\[object\s(.*)\]$/)[1] || '';
+      switch (type) {
+        case 'Number':
+          if (isNaN(obj)) {
+            return "nan";
+          } else {
+            return "number";
+          }
+        case 'String':
+        case 'Boolean':
+        case 'Array':
+        case 'Date':
+        case 'RegExp':
+        case 'Function':
+          return type.toLowerCase();
+      }
+      if (typeof obj === "object") {
+        return "object";
+      }
+      return undefined;
+    }
+  
+    ShootingStar.prototype.launchStar = function(options) {
+      if (this.toType(options) != "object") {
+        options = {};
+      }
+      this.options = $.extend({}, this.defaultOptions, options);
+      this.n = 0;
+      this.m = 0;
+      var i = 0,
+        l = this.options.beamSize,
+        x = this.getRandom(this.wW - this.options.beamSize - 100, 100),
+        y = this.getRandom(this.hW - this.options.beamSize - 100, 100),
+        self = this;
+      for (; i < l; i++) {
+        setTimeout(function() {
+          self.addBeamPart(x, y);
+        }, self.options.life + (i * self.options.velocity));
+      }
+      for (i = 0; i < l; i++) {
+        setTimeout(function() {
+          self.delTrozoHaz()
+        }, self.options.beamSize + (i * self.options.velocity));
+      }
+    }
+  
+    ShootingStar.prototype.launch = function(everyTime) {
+      if (this.toType(everyTime) != "number") {
+        everyTime = 10;
+      }
+      everyTime = everyTime * 300;
+      this.launchStar();
+      var self = this;
+      setInterval(function() {
+        var options = {
+          dir: (self.getRandom(1, 0)) ? 1 : -1,
+          life: self.getRandom(400, 100),
+          beamSize: self.getRandom(700, 400),
+          velocity: self.getRandom(10, 4)
+        }
+        self.launchStar(options);
+      }, everyTime);
+    }
+  
+  })();
+  
+  $(document).ready(function() {
+    var shootingStarObj = new ShootingStar("body");
+    shootingStarObj.launch();
+  });

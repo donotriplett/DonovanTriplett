@@ -2,6 +2,7 @@
     color: white;
     text-align: left;
     font-size: 140%;
+    text-indent: 2vw;
 }
 
 #aboutContainer {
@@ -9,4 +10,8 @@
     margin-right: 1vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
+}
+
+#aboutHeader {
+    color: white;
 }
