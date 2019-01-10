@@ -1,6 +1,8 @@
 #about {
     width: 100vw;
     height: 50vh;
+    background-color: rgba(211, 211, 211, 0.404);
+    margin-bottom: 3vh;
 }
 
 #aboutMe1, #aboutMe2, #aboutMe3 {
