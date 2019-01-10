@@ -1,21 +1,61 @@
-#tutorialPage, #APIPage, #codePen {
-    height: 20vh;
-    padding: 1vw;
+.projectsContainer {
+    height: 50vh;
+    width: 100vw;
 }
 
-#projectsContainer {
-    margin-top: 2vh;
-    margin-right: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 2vh;
-
+.projects {
+    display: flex;
+    flex-flow: row wrap;
 }
 
-#projects {
-    text-align: right;
-    padding: 1vh;
+.discGolfLounge {
+    width: 20vw;
+    height: 30vh;
+    margin: 2em;
 }
 
-.projectHead {
-    color: White;
+.discGolfText {}
+
+#discGolfPicture {
+    width: 15vw;
+    height: 15vh;
+}
+
+.sportsDB-API {
+    width: 20vw;
+    height: 30vh;
+    margin: 2em;
+}
+
+.sportsDBText {}
+
+#sportsDBPicture {
+    width: 15vw;
+    height: 15vh;
+}
+
+.gardenTemple {
+    width: 20vw;
+    height: 30vh;
+    margin: 2em;
+}
+
+.gardenTempleText {}
+
+#gardenTemplePicture {
+    width: 15vw;
+    height: 15vh;
+}
+
+.nexus {
+    width: 20vw;
+    height: 30vh;
+    margin: 2em;
+}
+
+.nexusText {}
+
+#nexusPicture {
+    width: 15vw;
+    height: 15vh;
 }

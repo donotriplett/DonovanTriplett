@@ -1,3 +1,8 @@
+#about {
+    width: 100vw;
+    height: 50vh;
+}
+
 #aboutMe1, #aboutMe2, #aboutMe3 {
     text-align: left;
     font-size: 140%;
@@ -25,8 +30,4 @@
 #aboutHeader {
     font-style: italic;
     margin-left: 1vw;
-}
-
-#textDiv {
-    background: rgba(255, 255, 255, 0.7);
 }

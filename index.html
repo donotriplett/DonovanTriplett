@@ -5,42 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css" type="text/css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+
+    <title>Portfolio</title>
 </head>
 
 <body>
 
-    <!-- Canvas Page -->
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#projects">projects</a>
+                <a class="nav-item nav-link" href="#about">about</a>
+                <a class="nav-item nav-link" href="#contact">contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <div id="headerText">
-        <p><i>Donovan Triplett</i></p>
-    </div>
-    <canvas>
-    </canvas>
-    <div id="headerText2">
-        <p><i>Welcome to a Galaxy Not So Far Away...</i></p>
-    </div>
-
-    <!--projects-->
-
-    <div class="containter" id="projectsContainer">
-        <div id="projects">
-            <h1 class="projectHead"><i>Take a Look at my Projects</i></h1>
-            <a href="https://codepen.io/donotriplett/full/KxLBMv/" target="blank"><img id="codePen" src="Screenshot (8).png"></a>
-            <a href="https://donotriplett.github.io/tutorialPage/" target="blank"><img id="tutorialPage" src="Screenshot (11).png"></a>
-            <a href="https://donotriplett.github.io/SportsDB-API-project/" target="blank"><img id="APIPage" src="Screenshot (13).png"></a>
+    <!-- Splash Page -->
+    <div class="splashContainer">
+        <div class="splash">
+            <h1>Donovan Triplett</h1>
         </div>
     </div>
 
-    <!--about me-->
+    <!-- Projects -->
+    <div id="projects" class="projectsContainer">
+        <div class="projects">
+            <div class="discGolfLounge">
+                <h6 class="discGolfText">Disc Golf Lounge:</h6>
+                <p class="discGolfText">Built in React. First full-stack application I built.</p>
+                <img id="discGolfPicture" src="./Screenshot (15).png">
+            </div>
+            <div class="sportsDB-API">
+                <h6 class="sportsDBText">Sports Database API project:</h6>
+                <p class="sportsDBText">Built completely in vanilla JavaScript, HTML, and CSS. First project pulling
+                    data from an API and displaying it to the page.</p>
+                <img id="sportsDBPicture" src="./Screenshot (13).png">
+            </div>
+            <div class="gardenTemple">
+                <h6 class="gardenTempleText">Garden Temple:</h6>
+                <p class="gardenTempleText">Built in angular. Was made in a group of 3 within a timeframe of 24 hours,
+                    i dealt with the functionality of the components and the GIT side of the project.</p>
+                <img id="gardenTemplePicture" src="./Screenshot (16).png" href="">
+            </div>
+            <div class="nexus">
+                <h6 class="nexusText">Nexus:</h6>
+                <p class="nexusText">Built in angular. Was made in a group of 3 within a timeframe of 2 1/2 weeks. I
+                    did most of the functionality for the components while one did the server side, and the other did
+                    the styling.</p>
+                <img id="nexusPicture" src="./Screenshot (17).png" href="">
+            </div>
+        </div>
+    </div>
 
-    <div id="aboutContainer">
+    <!-- About -->
+    <div id="about">
         <div id="textDiv">
             <h3 id="aboutHeader">About Me:</h3>
             <p id="aboutMe1">I started my professional career working in a few warehouses, found out it was not the
@@ -62,15 +90,12 @@
         </div>
     </div>
 
-    <!--contact me-->
+    <!-- Contact -->
 
-    <section id="contactContainer">
+    <section id="contact">
         <div class="container">
-            <h3 id="contact">Contact Me</h3>
-            <div id="contact">
-                <div id="headshotDiv">
-                    <img id="headshot" src="TriplettDonovan.jpeg">
-                </div>
+            <h3>Contact Me</h3>
+            <div>
                 <form action="https://formspree.io/donotriplett@gmail.com" method="POST">
                     <div class="control-group">
                         <div class="form-group">
@@ -107,18 +132,6 @@
         </div>
     </section>
 
-    <nav class="navbar navbar-light bg-light" id="footer">
-        <span>Thanks for Visiting!</span>
-        <span>Webpage Brought to you by Donovan Triplett!</span>
-        <a class="navbar-brand" id="return" href="#">Return to Top</a>
-
-    </nav>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="./JS/canvasPage.js"></script>
 </body>
 
 </html>

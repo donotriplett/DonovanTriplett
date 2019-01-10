@@ -1,10 +1,4 @@
-@import "variables.css"; 
-@import "about.css";
-@import "contact.css";
-@import "body.css";
-@import "footer.css";
-@import "navbar.css";
-@import "projects.css";
-@import "header.css";
-@import "animate.css";
-@import "canvasPage.css";
+@import url(./navbar.css);
+@import url(./splash.css);
+@import url(./projects.css);
+@import url(./about.css);
